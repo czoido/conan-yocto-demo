@@ -7,7 +7,7 @@ class LedBlinkConan(ConanFile):
     license = "MIT"
     description = "Application to control leds with RPi"
     settings = "os", "compiler", "build_type", "arch"
-    requires = "wiringpi/2.50@user/channel"  # comma-separated list of requirements
+    requires = "wiringpi/2.50"  # comma-separated list of requirements
     generators = "cmake", "gcc", "txt"
     default_options = {"wiringpi:shared": False, "wiringpi:skipHWDetectionRPIModel3": True}
     exports_sources = "CMakeLists.txt", "*cpp", "LICENSE"
