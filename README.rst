@@ -10,9 +10,8 @@ In Linux:
 
 .. code-block:: bash
 
-    git clone https://github.com/czoido/conan-wiringpi.git
+    git clone --branch demo https://github.com/czoido/conan-wiringpi.git
     cd conan-wiringpi/
-    git checkout demo
     conan create . #creates package for default linux profile, not arm
     conan upload wiringpi/2.50 --all --confirm -r local
     cd ..
