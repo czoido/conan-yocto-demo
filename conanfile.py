@@ -28,5 +28,5 @@ class LedBlinkConan(ConanFile):
         self.copy("*", src="lib", dst="bin", symlinks=True)
 
     def deploy(self):
-        self.copy("led_blink*", src="bin", dst="bin")
+        self.copy("*", src="bin", dst="bin")
         self.copy_deps("*", src="lib", dst="bin")
