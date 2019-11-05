@@ -18,7 +18,21 @@ In Linux:
     cd ..
     git clone https://github.com/czoido/conan-yocto-demo.git
     cd conan-yocto-demo/
-    conan create .
+    conan create . --build missing
+    conan install led_blink/0.1@
+    ./bin/yocto_led # will run the linux (not arm) version
 
-    
+
+Let's cross-compile the RPi version:
+
+.. code-block:: bash
+
+    source ~/poky_sdk/environment-setup-aarch64-poky-linux 
+    cd conan-yocto-demo/
+    cp profiles/armv8 ~/.conan/profiles/armv8 
+    conan create . --profile armv8 --build missing
+    conan install led_blink/0.1@ --profile armv8
+    ssh root@raspberry_pi_ip 'killall yocto_led'
+    scp bin/yocto_led root@raspberry_pi_ip:~
+    ssh root@raspberry_pi_ip '~/yocto_led'
 
